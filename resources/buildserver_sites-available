@@ -1,0 +1,8 @@
+server {
+    listen 80;
+    server_name <your-server-ip> <your-site-url>;
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/justin/deploy_latest_builds/project.sock;
+    }
+}

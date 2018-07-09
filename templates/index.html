@@ -1,0 +1,40 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Yoursite Builds</h1>
+    <p>
+        <div class="dropdown">
+          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose App1 Build
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="https://artifactory.yoursite.io/artifactory/gradle-dev-local/com/core/app1/{{ latest_app1 }}/app1-{{ latest_app1 }}.jar">Latest app1: {{ latest_app1 }}</a></li>
+            {% for build in app1_builds %}
+                <li><a class="dropdown-item" href="https://artifactory.yoursite.io/artifactory/gradle-dev-local/com/core/app1/{{ build }}/app1-{{ build }}.jar">{{ build }}</a></li>
+            {% endfor %}
+          </div>
+        </div>
+    </p>
+
+    <p>
+        <div class="dropdown">
+          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose App2 Build
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="https://artifactory.yoursite.io/artifactory/gradle-dev-local/com/devtools/app2/{{ latest_app2 }}/app2-{{ latest_app2 }}.jar">Latest app2: {{ latest_app2 }}</a></li>
+            {% for build in app2_builds %}
+                <li><a class="dropdown-item" href="https://artifactory.yoursite.io/artifactory/gradle-dev-local/com/devtools/app2/{{ build }}/app2-{{ build }}.jar">{{ build }}</a></li>
+            {% endfor %}
+          </div>
+        </div>
+    </p>
+
+    <p>
+        Brought to you by <a href="http://justinsofia.com">Justin Sofia</a>
+    </p>
+
+</div>
+{% endblock %}

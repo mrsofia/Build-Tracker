@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve latest builds
+After=network.target
+
+[Service]
+User=justin
+Group=www-data
+WorkingDirectory=/home/justin/deploy_latest_builds
+Environment="PATH=/home/justin/deploy_latest_builds/env/bin"
+ExecStart=/home/justin/deploy_latest_builds/env/bin/uwsgi --ini project.ini
+
+[Install]
+WantedBy=multi-user.target
